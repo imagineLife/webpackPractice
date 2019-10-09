@@ -1,4 +1,11 @@
-//https://webpack.js.org/plugins/mini-css-extract-plugin/
+/*
+	https://webpack.js.org/plugins/mini-css-extract-plugin/
+	By Default, this concats all css, from many css files,
+	 	into a single css file 
+		in the dist folder
+		in prod mode
+*/
+
 const MiniCssExtract = require('mini-css-extract-plugin')
 
 module.exports = () => ({
