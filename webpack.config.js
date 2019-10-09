@@ -14,7 +14,7 @@ const wpMerge = require("webpack-merge");
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 
 /*
-  Includes defaults (mode && presets)
+  Includes default mode && presets
 */
 module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   /*
