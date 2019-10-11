@@ -40,7 +40,22 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
             test: /\.jpe?g/,
             //-base-64 inline OR emit to output dir
             //references the node-mod
-            use:["url-loader"] 
+            //SHORTHAND -> 
+            // use:["url-loader"],
+            /*
+              HERE, the url (this jpeg being loaded)
+              is assigned a max-size it can be while being a base64 string
+              in the root bundle file. 
+              If the img is larger than the limit, 
+              the file will be hashed and stored in the dist folder
+              separately
+            */
+            use:[{
+              loader: "url-loader",
+              options: {
+                limit: 5000
+              }
+            }] 
           }
         ]
       },
