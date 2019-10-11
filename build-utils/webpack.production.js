@@ -9,6 +9,10 @@
 const MiniCssExtract = require('mini-css-extract-plugin')
 
 module.exports = () => ({
+
+  //shows source-map in the build output in console
+  // for js && css
+  devtool: "source-map",
   output: {
   	// makes the filename scrambled
   	//... incld the src string in the index.html 
