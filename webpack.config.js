@@ -32,7 +32,15 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
   */
   return wpMerge(
     {
-      mode,                   //mode from 'props'
+      mode,     //mode from 'props'
+      module: {
+        rules: [
+          {
+            test: /\.jpeg/,  // loads jpeg images
+            use: "url-loader" //base-64 inline OR emit to output dir
+          }
+        ]
+      },
       output: {
         filename: "bundle.js"
       },
