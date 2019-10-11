@@ -11,6 +11,7 @@
     "devhot": "npm run webpack-dev-server -- --env.mode development --hot",
     "prod": "npm run webpack -- --env.mode production",
     "prod:analyze": "npm run prod -- --env.presets analyze",
+    "prod:compress": "npm run prod -- --env.presets compress",
     "prod:ts": "npm run prod -- --env.presets typescript",
     "prod:debug": "npm run debug -- --env.mode production",
     "dev:debug": "npm run debug -- --env.mode development"
@@ -41,5 +42,8 @@
     "webpack-merge": "^4.2.1",
     "webpack-node-externals": "^1.7.2",
     "workbox-webpack-plugin": "^4.3.1"
+  },
+  "dependencies": {
+    "compression-webpack-plugin": "^3.0.0"
   }
 }
