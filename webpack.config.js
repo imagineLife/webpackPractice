@@ -36,8 +36,11 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
       module: {
         rules: [
           {
-            test: /\.jpeg/,  // loads jpeg images
-            use: "url-loader" //base-64 inline OR emit to output dir
+            // loads jpeg/jpg images
+            test: /\.jpe?g/,
+            //-base-64 inline OR emit to output dir
+            //references the node-mod
+            use:["url-loader"] 
           }
         ]
       },
