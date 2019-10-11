@@ -9,7 +9,7 @@ import makeImage from './image'
 // shows base-64 string!
 console.log('image')
 
-const thisImage = makeImage(imageStr)
+const thisImage = makeImage(imageStr, {height: 100, width: 100})
 
 const button = makeButton("Yay! A Button!");
 // button.style = makeColorStyle("cyan");
