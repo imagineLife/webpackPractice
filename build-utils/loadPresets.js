@@ -1,10 +1,14 @@
 /*
 	A Plugin helper
 	pass the env to PASS to other configs in the fn
+	ALLOWS
+		creating smaller configs that can be appended to the 
+		ROOT config
 */
 const wpMerge = require('webpack-merge')
 
-const applyPresets = (env) => {
+const applyPresets = env => {
+	
 	const { presets } = env;
 
 	//return arr of strs, arr of preset names
@@ -13,8 +17,8 @@ const applyPresets = (env) => {
 	//loop through presets, by name, && require each preset
 	//call each preset passing env to the preset
 	const mergedConfigs = mergedPresets.map(presetName =>
-		require(`./presets/webpack.${presetName}}`)(env);
-	)
+    require(`./presets/webpack.${presetName}`)(env)
+  );
 
 	//returns the MERGED wpConfing including the presets
 	return wpMerge({}, ...mergedConfigs)
