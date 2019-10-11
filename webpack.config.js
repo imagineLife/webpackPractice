@@ -36,7 +36,13 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
       module: {
         rules: [
           {
-            // loads jpeg/jpg images
+            /*
+              URL LOADER
+              https://webpack.js.org/loaders/url-loader/
+              url-loader works like file-loader, but can return a DataURL if the file is smaller than a byte limit.
+              url-loader works with many file-types
+              HERE, loads jpeg/jpg images
+            */
             test: /\.jpe?g/,
             //-base-64 inline OR emit to output dir
             //references the node-mod
@@ -45,10 +51,9 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
             /*
               HERE, the url (this jpeg being loaded)
               is assigned a max-size it can be while being a base64 string
-              in the root bundle file. 
-              If the img is larger than the limit, 
-              the file will be hashed and stored in the dist folder
-              separately
+              in the root bundle file.  If the img is larger
+               than the limit, the file will be hashed
+                and stored in the dist folder separately from the root bundle
             */
             use:[{
               loader: "url-loader",
