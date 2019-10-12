@@ -16,7 +16,7 @@ import makeImage from './image'
 // import Foo from './foo.ts'
 
 // shows base-64 string!
-console.log('image')
+// console.log(imageStr)
 
 const thisImage = makeImage(imageStr, {height: 100, width: 100})
 
