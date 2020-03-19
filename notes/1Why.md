@@ -61,3 +61,8 @@ Only 2 ways to LOAD js in the browser...
 - ...requirejs(loader)
 - ...systemjs(loader)
 
+##...Problems with these bundlers / linkers??!
+- commonJS offers require, which gets abused
+- ... no lazy loading support
+- its too dynamic of a module
+
