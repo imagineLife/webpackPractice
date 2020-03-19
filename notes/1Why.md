@@ -49,3 +49,15 @@ Only 2 ways to LOAD js in the browser...
 - ... default un-named exports, ```module.exports = (f,s) => f/s```
 - ... named exports, ```exports.add = (f,s) => f + s```
 - this helps reduce scope complexity, as these exports/imports can be very segregated
+- package.js became the place to get commonJS modules
+
+## CommonJS PROBLEMS
+- browsers don't support CommonJS
+- no live bindings (??)
+
+## CommonJS Solutions?!
+- bundlers / linkers
+- ...browserify(static)
+- ...requirejs(loader)
+- ...systemjs(loader)
+
