@@ -66,3 +66,13 @@ Only 2 ways to LOAD js in the browser...
 - ... no lazy loading support
 - its too dynamic of a module
 
+
+## ESM
+- ecmaScript
+- ... ```import * from```
+- named exports / imports
+- default imports / exports
+- these are...
+
+## ESM PROLEMS?!
+- esm is very very slow
