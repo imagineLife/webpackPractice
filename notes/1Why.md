@@ -31,4 +31,21 @@ Only 2 ways to LOAD js in the browser...
   - broccoli
   - brunch
   - stealjs
-  
+
+## ... More Problems came about :( 
+- changing js file requires full re-build every-time
+- some modules are massive, and requiring the whole module for a few functions (**lodash**) is rediculous
+- IIFEs are kinda slow
+	- JS engines eagerly parse the code
+- Dynamic loading became complicated
+
+# Birth of JS Modules
+- js on the server
+- ...how to load js with no dom?!....
+... commonJS came about
+
+## CommonJS
+- allow ```requre``` keyword, importing js from 1 module into another module
+- ... default un-named exports, ```module.exports = (f,s) => f/s```
+- ... named exports, ```exports.add = (f,s) => f + s```
+- this helps reduce scope complexity, as these exports/imports can be very segregated
