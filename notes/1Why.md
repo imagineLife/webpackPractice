@@ -15,3 +15,20 @@ Only 2 ways to LOAD js in the browser...
 - readability
 - fragility
 - monolith files
+
+## SOLUTION?!
+- IIFEs
+  - Immediately Invoked Function Expression
+  - a fn wrapped in parenthesis, followd by (), which CALLS the fn
+  - HERE, the fn can TAKE values from outside it's scope apply to the fn
+  - each FILE can be treated as an IIFE (revealing pattern)
+- IIFEs allow concatenation
+	- 'safely' combining files without concern of scop collision**
+- TOOLS BEGAN popping up...
+  - make
+  - grunt
+  - gulp
+  - broccoli
+  - brunch
+  - stealjs
+  
