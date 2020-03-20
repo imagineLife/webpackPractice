@@ -9,3 +9,9 @@
 - apply the plugin with ``` new **pluginName**```
 - ... here with ```new BellOnBundlerErrorPlugin()```
 - 80% of wp is plugins
+
+## Plugins vs loaders
+- PLUGINS reach the scope of the whole project
+- ...uglify
+- ...compression 
+- LOADERS are file-by-file, per the ```test``` keyword in the loader config syntax
