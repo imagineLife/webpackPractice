@@ -10,29 +10,24 @@ here, the build-utils webpack.config file is DYNAMIC based on the mode var from 
 - mode development will use ```build-utils/webpack.development.js```
 - mode production will use ```build-utils/webpack.production.js```
 
-### use this modeConfig @ end of webpack file
+
+## Introducing the build-utils
+build-utils is a file that holds more build utilities.
+here lies...
+- environment-specific webpack.config details
+- presets (_placeholder for now_)
+
+### Making Production different than dev
+- update webpack.production.js in the build-utils
 ```
-...(_webpack config_)
-return {
-  mode,
+module.exports = () => ({
   output: {
-    filename: "bundle.js"
-  },
-  plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
-},
-modeConfig(mode)
-
+    filename: "[chunkhash].js"
+  }
+});
 ```
 
-### update the first line of the webpack config module export
-```
-module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
-```
-- mode && presets have defaults, 
-  - production mode 
-  - no presets
-
-#### Using WebpackMerge to combine webpack files
+## Using WebpackMerge to combine webpack files
 [Docs](https://github.com/survivejs/webpack-merge)
 
 (_from their docs_)
@@ -59,9 +54,34 @@ module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
       },
       plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
     },
-    modeConfig(mode, presets)
+    modeConfig(mode)
   );
 };
 ```
 ...now the config is **COMPOSED!!**
-note, the modeConfig now is set to take ```mode, presets```
+note, the modeConfig now is set to take ```mode```
+
+
+## Using ModeConfig in Webpack.config
+
+### use this modeConfig @ end of webpack file
+```
+...(_webpack config_)
+return {
+  mode,
+  output: {
+    filename: "bundle.js"
+  },
+  plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+},
+modeConfig(mode)
+
+```
+
+### update the first line of the webpack config module export
+```
+module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
+```
+- mode && presets have defaults, 
+  - production mode 
+  - no presets
