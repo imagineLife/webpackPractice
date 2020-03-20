@@ -17,3 +17,31 @@ module.exports = env => {
 	}
 }
 ```
+- ... this will output ```{mode: 'production'}``` in the console. the env is an object
+
+- USE the env in the webpack config...
+```
+module.exports = env => {
+	console.log(env);
+	return {
+		output: {
+			mode: env.mode,
+			filename: 'bundle.js'
+		}
+	}
+}
+```
+**NOTE** the command in the cli can be **env production**. Sean Larkin recommends using env as an object, though
+
+- can add destructuring to 'simplify' the syntax in the config...
+```
+module.exports = ({mode}) => { //destructured mode var
+	console.log(mode);
+	return {
+		output: {
+			mode, //object literal
+			filename: 'bundle.js'
+		}
+	}
+}
+```
