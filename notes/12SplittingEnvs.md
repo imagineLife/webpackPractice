@@ -43,3 +43,25 @@ creating a new object. If functions are encountered,
 it will execute them, run the results through the 
 algorithm, and then wrap the returned values within a function again.
 ```
+
+- install the package
+``` npm install webpack-merge``` 
+- import the package in webpack config
+``` const webpackMerge = require("webpack-merge")```
+- wrap config in this fn
+```
+module.exports = ({ mode, presets } = { mode: "production", presets: [] }) => {
+  return webpackMerge(
+    {
+      mode,
+      output: {
+        filename: "bundle.js"
+      },
+      plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()]
+    },
+    modeConfig(mode, presets)
+  );
+};
+```
+...now the config is **COMPOSED!!**
+note, the modeConfig now is set to take ```mode, presets```
