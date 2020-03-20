@@ -60,3 +60,5 @@ prod: npm run webpack -- --mode production
   - in browser, go to ```chrome://inspect/#devices```
   - can 'open dedicated dev tools in the browser'
   - runs with breakpoints in node
+- ```npm run bedug```
+  - is debugging through webpack!
