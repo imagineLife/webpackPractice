@@ -48,3 +48,15 @@ prod: npm run webpack -- --mode production
 - npm allows composing scripts
 - here, the dev is a composition on-top-of the ```webpack``` command
 - here, the prod is a composition on-top-of the ```webpack``` command
+
+## Debugging Webpack with package.json script
+```
+"debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
+"prod:debug": "npm run debug -- --mode production",
+"dev:debug": "npm run debug -- --mode development",
+"debugthis": "node --inspect --inspect-brk ./src/index.js"
+```
+- the ```debugthis``` command...
+  - in browser, go to ```chrome://inspect/#devices```
+  - can 'open dedicated dev tools in the browser'
+  - runs with breakpoints in node
